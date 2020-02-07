@@ -1,0 +1,29 @@
+.reel {
+    height: 240px;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    overflow: hidden;
+
+    border: 1px solid black;
+    box-shadow: inset 0 0 10px 5px black;
+
+    top: 200px;
+}
+
+.aligner {
+    display: inline;
+}
+
+.image-wrapper {
+}
+
+.position {
+    border: 1px solid transparent;
+    margin: 2px;
+    display: block;
+}
+
+.bordered {
+    border: 1px solid blue;
+}

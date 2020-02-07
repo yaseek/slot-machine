@@ -1,0 +1,5 @@
+export { default as barx1 } from './BAR.png'
+export { default as barx2 } from './2xBAR.png'
+export { default as barx3 } from './3xBAR.png'
+export { default as seven } from './7.png'
+export { default as cherry } from './Cherry.png'

@@ -1,5 +1,6 @@
 {
   "name": "slot-machine",
+  "description": "Test task for Derivco International",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
