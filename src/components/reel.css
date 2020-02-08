@@ -1,14 +1,30 @@
-.reel {
+.reels {
+}
+
+.reel-wrapper {
     height: 240px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.reel {
+    height: 100%;
     position: relative;
     display: inline-flex;
     align-items: center;
     overflow: hidden;
 
     border: 1px solid black;
-    box-shadow: inset 0 0 10px 5px black;
+    border-radius: 10px;
+}
 
-    top: 200px;
+.shadow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: inset 0 0 10px 5px black;    
 }
 
 .aligner {

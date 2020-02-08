@@ -1,9 +1,9 @@
-export function Spin (duration) {
+export function Spin (duration, interval) {
     if (!(this instanceof Spin)) {
-        return new Spin(duration)
+        return new Spin(duration, interval)
     }
-    this.duration = duration,
-    this.interval = duration * .2
+    this.duration = duration
+    this.interval = interval
     this.getEasingCoefficient = Spin.easing.linear.bind(this)
 }
 
@@ -22,25 +22,25 @@ Spin.prototype.easing = function (fn) {
     return this
 }
 
-Spin.prototype.action = function (action, stop) {
-    this.startTime = Date.now()
+Spin.prototype.action = function (action) {
+    return new Promise((resolve) => {
+        const startTime = Date.now()
 
-    if (this.interval <= 0) {
-        return this
-    }
+        if (this.interval <= 0) {
+            return resolve(startTime)
+        }
 
-    const spin = (duration) => {
-        const coeff = this.getEasingCoefficient(duration)
-        const newInterval = this.interval * (coeff + .1)
-        
-        action(coeff)
-        
-        return duration <= 0
-            ? stop(this.startTime)
-            : setTimeout(() => spin(duration - newInterval), newInterval)
-    }
+        const spin = (duration) => {
+            const coeff = this.getEasingCoefficient(duration)
+            const newInterval = this.interval * (coeff + .1)
+            
+            action(coeff)
+            
+            return duration - newInterval <= 0
+                ? resolve(startTime)
+                : setTimeout(() => spin(duration - newInterval), newInterval)
+        }
 
-    action('start')
-    spin(this.duration)
-    return this
+        spin(this.duration)
+    })
 }

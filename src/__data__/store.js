@@ -1,4 +1,5 @@
-import { createStore } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
+import thunk from 'redux-thunk'
 
 import { default as machine } from './reducer'
 
@@ -8,5 +9,8 @@ const devtoolsReducer = window.__REDUX_DEVTOOLS_EXTENSION__
 
 export const store = createStore(
     machine,
-    devtoolsReducer
+    compose(
+        applyMiddleware(thunk),
+        devtoolsReducer
+    )
 )
