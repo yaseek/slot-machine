@@ -1,0 +1,6 @@
+export const REEL_START = 'REEL_START'
+export const REEL_STEP = 'REEL_STEP'
+export const REEL_FINISH = 'REEL_FINISH'
+export const SET_BALANCE = 'SET_BALANCE'
+export const SET_DEBUG_INFO = 'SET_DEBUG_INFO'
+export const REMOVE_DEBUG_INFO = 'REMOVE_DEBUG_INFO'
