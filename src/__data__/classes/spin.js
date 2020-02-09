@@ -2,6 +2,9 @@ export function Spin (duration, interval) {
     if (!(this instanceof Spin)) {
         return new Spin(duration, interval)
     }
+    if (!interval) {
+        throw new Error('missed interval')
+    }
     this.duration = duration
     this.interval = interval
     this.getEasingCoefficient = Spin.easing.linear.bind(this)
@@ -30,17 +33,25 @@ Spin.prototype.action = function (action) {
             return resolve(startTime)
         }
 
+        let timer = 0
+
         const spin = (duration) => {
             const coeff = this.getEasingCoefficient(duration)
             const newInterval = this.interval * (coeff + .1)
             
             action(coeff)
             
-            return duration - newInterval <= 0
-                ? resolve(startTime)
-                : setTimeout(() => spin(duration - newInterval), newInterval)
+            if (duration - newInterval <= 0) {
+                resolve(Date.now() - startTime)
+            }
+            timer = setTimeout(() => spin(duration - newInterval), newInterval)
         }
 
         spin(this.duration)
+        
+        setTimeout(() => {
+            clearTimeout(timer)
+            resolve(Date.now() - startTime)
+        }, this.duration)
     })
 }

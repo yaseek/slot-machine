@@ -1,0 +1,33 @@
+.debug {
+    &Reel {
+        flex: 1;
+    }
+
+    &Fieldset {
+        border-radius: 10px;
+        margin: 10px 5px;
+
+        legend {
+            color: grey;
+        }
+    }
+}
+
+.radio {
+    &Label {
+        display: flex;
+        align-items: center;
+    }
+
+    &Input {
+        width: 2em;
+    }
+
+    &Content {
+        flex: 1;
+        
+        img {
+            width: 3em;
+        }        
+    }
+}

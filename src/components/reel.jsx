@@ -2,25 +2,25 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import _ from 'lodash'
 
-import './reel.css'
+import style from './reel.module.scss'
 
 export const Reel = ({ images }) => {
     return (
-        <div className="reel-wrapper">
-            <div className="reel">
-                <div className="aligner">
-                    <div className="image-wrapper">
+        <div className={style.reelWrapper}>
+            <div className={style.reel}>
+                <div className={style.aligner}>
+                    <div className={style.imageWrapper}>
                         {_.map(images, (imgName) => (
                             <img
                                 src={imgName}
-                                className="position"
+                                className={style.position}
                                 key={imgName}
-                                alt="reel position"
+                                alt="position"
                             />
                         ))}
                     </div>
                 </div>
-                <div className="shadow" />
+                <div className={style.shadow} />
             </div>
         </div>
     )

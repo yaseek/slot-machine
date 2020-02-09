@@ -1,12 +1,3 @@
-.reels {
-}
-
-.reel-wrapper {
-    height: 240px;
-    display: inline-block;
-    overflow: hidden;
-}
-
 .reel {
     height: 100%;
     position: relative;
@@ -16,6 +7,13 @@
 
     border: 1px solid black;
     border-radius: 10px;
+
+    &Wrapper {
+        height: 240px;
+        display: inline-block;
+        overflow: hidden;
+    }
+
 }
 
 .shadow {
@@ -29,9 +27,6 @@
 
 .aligner {
     display: inline;
-}
-
-.image-wrapper {
 }
 
 .position {

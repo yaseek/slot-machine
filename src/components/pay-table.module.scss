@@ -1,0 +1,24 @@
+@keyframes blinking {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.blinking {
+  animation: blinking .4s infinite;
+}
+
+.payTable {
+    .row {
+        display: flex;
+        margin: 5px 0;
+    }
+
+    .label {
+        flex: 1;
+    }
+
+    .value {
+        width: 10em;
+        text-align: right;
+    }
+}
